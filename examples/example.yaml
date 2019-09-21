@@ -1,0 +1,5 @@
+title: "IMGEN EXAMPLE SIMPLE"
+source: "examples/images/"
+operation:
+  rotate:
+    rotation_angle: -1
