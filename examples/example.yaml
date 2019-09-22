@@ -1,5 +1,10 @@
 title: "IMGEN EXAMPLE SIMPLE"
 source: "examples/images/"
-operation:
-  rotate:
-    rotation_angle: -1
+dest: "examples/images/outputs"
+operations:
+  - rotate:
+      probability: 0.5
+      rotation_angle: -1
+  - rotate:
+      probability: 0.3
+      rotation_angle: 90

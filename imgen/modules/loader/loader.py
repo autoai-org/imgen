@@ -1,20 +1,14 @@
 import os
+import glob
 
-def load_images(imagesPath):
-    # load_images walks the path, and returns the number of files under the path
-    # it will go recursively
-    # return: -1, [] if folder does not exist
-    #          0, [] if folder exists, but no files found
-    #          n, [image_1, image_2, ... image_n] if folder exists, and n(umber) files found
+def load_filelist(imagesPath, recursively=True):
+    file_types = ['*.jpg', '*.bmp', '*.jpeg', '*.gif', '*.img', '*.png']
+    file_types.extend([str.upper(x) for x in file_types])
     results = []
     idx = -1
-    for root, dirs, files in os.walk(imagesPath):
-        for name in files:
-            results.append(os.path.join(imagesPath, name))
-        for name in dirs:
-            path = os.path.join(imagesPath, name)
-            if (os.path.isfile(path)):
-                results.append(path)
+    for file_type in file_types:
+        results.extend(glob.glob(os.path.join(os.path.abspath(imagesPath+"/**/*"), file_type), recursive=True))
+
     if not len(results) == 0:
         idx = len(results)
     return idx, results

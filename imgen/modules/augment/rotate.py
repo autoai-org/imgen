@@ -2,13 +2,13 @@ import random
 from modules.augment.operation import Operation
 
 class Rotate(Operation):
-    def __init__(self, probability, rotation_angle):
+    def __init__(self, probability=0.5, rotation_angle=-1):
         """
         rotation angle could be one of:
         90  :
         180 :
         270 :
-        -1  : randomly
+        -1  : randomly, default
         """
         Operation.__init__(self, probability)
         self.rotation = rotation_angle
